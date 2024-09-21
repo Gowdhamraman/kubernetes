@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      containers:
+      - name: web-app
+        image: httpd:2.4 # Using Apache HTTP Server
+        volumeMounts:
+        - name: html-volume
+          mountPath: /usr/local/apache2/htdocs/ # Path where Apache serves files
+      volumes:
+      - name: html-volume
+        configMap:
+          name: web-app-config # Reference to ConfigMap for HTML content
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-app-service
+spec:
+  type: ClusterIP
+  ports:
+  - port: 80
+    targetPort: 80
+  selector:
+    app: web-app
