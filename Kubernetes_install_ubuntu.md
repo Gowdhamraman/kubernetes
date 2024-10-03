@@ -15,7 +15,8 @@ This updates the local package index so you can get the latest versions of insta
 
 1.3. Install apt-transport-https:
 
-apt-get install -y apt-transport-https
+`apt-get install -y apt-transport-https`
+
 This ensures the system can retrieve packages over HTTPS, required for accessing the Kubernetes repositories.
 
 ### 2. Install Docker on All Nodes
