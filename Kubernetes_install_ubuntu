@@ -1,5 +1,5 @@
 
-*Here’s a step-by-step guide with commands and explanations for setting up a Kubernetes cluster with a master and worker nodes using kubeadm and Docker.*
+**Here’s a step-by-step guide with commands and explanations for setting up a Kubernetes cluster with a master and worker nodes using kubeadm and Docker.**
 
 1. Prepare All Nodes (Master and Workers)
 Perform the following steps on all nodes (master and workers):
