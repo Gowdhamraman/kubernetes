@@ -5,11 +5,11 @@
 Perform the following steps on all nodes (master and workers):
 
 1.1. Switch to the root user:
-> `sudo su -`
+`sudo su -`
 
 1.2. Update the System:
 
-> `apt-get update -y`
+ `apt-get update -y`
 
 This updates the local package index so you can get the latest versions of installed packages.
 
