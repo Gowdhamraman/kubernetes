@@ -1,14 +1,14 @@
 
-**Here’s a step-by-step guide with commands and explanations for setting up a Kubernetes cluster with a master and worker nodes using kubeadm and Docker.**
+## **Here’s a step-by-step guide with commands and explanations for setting up a Kubernetes cluster with a master and worker nodes using kubeadm and Docker.**
 
-1. Prepare All Nodes (Master and Workers)
+### 1. Prepare All Nodes (Master and Workers)
 Perform the following steps on all nodes (master and workers):
 
 1.1. Switch to the root user:
- sudo su -
+> sudo su -
 1.2. Update the System:
 
-apt-get update -y
+> apt-get update -y
 
 This updates the local package index so you can get the latest versions of installed packages.
 
@@ -17,7 +17,7 @@ This updates the local package index so you can get the latest versions of insta
 apt-get install -y apt-transport-https
 This ensures the system can retrieve packages over HTTPS, required for accessing the Kubernetes repositories.
 
-2. Install Docker on All Nodes
+### 2. Install Docker on All Nodes
 Kubernetes uses Docker (or another container runtime) to manage containers.
 
 2.1. Install Docker:
@@ -38,7 +38,7 @@ systemctl enable docker
 
 This ensures Docker starts automatically after each reboot.
 
-3. Add Kubernetes APT Repository on All Nodes
+### 3. Add Kubernetes APT Repository on All Nodes
 To install Kubernetes components, add its repository.
 
 3.1. Add Google Cloud GPG Key:
@@ -72,7 +72,7 @@ kubeadm: Tool to bootstrap the Kubernetes cluster.
 kubectl: Command-line tool to interact with the cluster.
 kubernetes-cni: Installs the Container Network Interface (CNI) plugins.
 
-4. Initialize the Master Node (Only on Master Node)
+### 4. Initialize the Master Node (Only on Master Node)
 Perform the following steps only on the master node:
 
 4.1. Initialize the Kubernetes Master Node:
@@ -109,7 +109,7 @@ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documen
 
 Flannel configures a network interface for inter-node communication in your Kubernetes cluster.
 
-5. Add Worker Nodes to the Cluster
+### 5. Add Worker Nodes to the Cluster
 
 On each worker node, run the join command provided by the master after the kubeadm init step.
 
@@ -122,7 +122,7 @@ kubeadm join <Master-IP>:6443 --token <token> --discovery-token-ca-cert-hash <ha
 
 This command will connect the worker node to the master and register it with the cluster.
 
-6. Verify the Cluster (Run on Master Node)
+### 6. Verify the Cluster (Run on Master Node)
 After all nodes (master and workers) are configured, verify the nodes from the master node:
 
 
@@ -130,7 +130,8 @@ kubectl get nodes
 
 You should see the master node and all worker nodes listed with a status of Ready.
 
-Conclusion
+## Conclusion:
+
 You now have a working Kubernetes cluster with one master node and multiple worker nodes. The process involved:
 
 Installing and setting up Docker on all nodes.
