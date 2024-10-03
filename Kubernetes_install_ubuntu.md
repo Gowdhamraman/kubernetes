@@ -6,6 +6,7 @@ Perform the following steps on all nodes (master and workers):
 
 1.1. Switch to the root user:
 > sudo su -
+
 1.2. Update the System:
 
 > apt-get update -y
